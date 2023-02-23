@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   }
     get '/u/:id', to: 'users#profile', as: 'user'
 
-  resources :posts
+    # /post/1/comment/3
+  resources :posts  do 
+    resources :comments 
+  end
+
+
   get 'about', to: 'pages#about'
   #get 'pages/about'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
